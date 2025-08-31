@@ -32,9 +32,9 @@ export async function POST (request: NextRequest) {
             {message:"User Created Successfully"},
             {status: 201}
         );
-    }
+    } 
     catch (error) {
-        console.error(error);
+        console.error("Registration error",error);
         return NextResponse.json(
             {message:"Failed to Create User"},
             {status: 500}
