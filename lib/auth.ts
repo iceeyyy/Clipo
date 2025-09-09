@@ -25,14 +25,14 @@ export const authOptions: NextAuthOptions = {
             const user = await User.findOne({email:credentials.email}) //check if user exists
 
             if(!user){
-                throw new Error("No user found with the given email");
+                throw new Error("No user found with the given email"); 
             }
 
             const isValid = await bcrypt.compare(credentials.password, user.password); //compare the password with hashed password stored in db
 
             if(!isValid){
                 throw new Error("Incorrect password");
-            }
+            } 
             return{
                 id: user._id.toString(),
                 email: user.email
